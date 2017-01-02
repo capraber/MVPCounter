@@ -3,7 +3,7 @@ Simple MVP example
 
 ![alt tag](https://github.com/capraber/MVPCounter/blob/master/1.MVP.png)
 
-## Example Imagene
+## Example Image
 ![alt tag](https://github.com/capraber/MVPCounter/blob/master/2.CounterImage.png)
 
 ## Environment set up
