@@ -1,11 +1,11 @@
-package com.jnj.intelence.android.mvp.presenter;
+package com.globant.counter.android.mvp.presenter;
 
-import com.jnj.intelence.android.mvp.model.CountModel;
-import com.jnj.intelence.android.mvp.view.CountView;
+import com.globant.counter.android.mvp.model.CountModel;
+import com.globant.counter.android.mvp.view.CountView;
 import com.squareup.otto.Subscribe;
 
-import static com.jnj.intelence.android.mvp.view.CountView.*;
-import static com.jnj.intelence.android.mvp.view.CountView.CountButtonPressedEvent;
+import static com.globant.counter.android.mvp.view.CountView.*;
+import static com.globant.counter.android.mvp.view.CountView.CountButtonPressedEvent;
 
 public class CountPresenter {
 

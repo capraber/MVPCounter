@@ -1,4 +1,4 @@
-package com.jnj.intelence.android.utils;
+package com.globant.counter.android.utils;
 
 import com.squareup.otto.Bus;
 

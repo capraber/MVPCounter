@@ -1,11 +1,10 @@
-package com.jnj.intelence.android.mvp.presenter;
+package com.globant.counter.android.mvp.presenter;
 
-import com.jnj.intelence.android.mvp.model.CountModel;
-import com.jnj.intelence.android.mvp.view.CountView;
+import com.globant.counter.android.mvp.model.CountModel;
+import com.globant.counter.android.mvp.view.CountView;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;

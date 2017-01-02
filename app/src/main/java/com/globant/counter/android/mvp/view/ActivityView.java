@@ -1,4 +1,4 @@
-package com.jnj.intelence.android.mvp.view;
+package com.globant.counter.android.mvp.view;
 
 import android.app.Activity;
 import android.app.FragmentManager;

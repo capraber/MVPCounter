@@ -1,10 +1,10 @@
-package com.jnj.intelence.android.mvp.view;
+package com.globant.counter.android.mvp.view;
 
 
 import android.app.Activity;
 import android.widget.TextView;
 
-import com.jnj.intelence.android.R;
+import com.globant.counter.android.R;
 import com.squareup.otto.Bus;
 
 import butterknife.BindView;

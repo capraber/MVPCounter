@@ -1,4 +1,4 @@
-package com.jnj.intelence.android;
+package com.globant.counter.android;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

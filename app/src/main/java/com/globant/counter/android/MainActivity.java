@@ -1,12 +1,12 @@
-package com.jnj.intelence.android;
+package com.globant.counter.android;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.jnj.intelence.android.mvp.model.CountModel;
-import com.jnj.intelence.android.mvp.presenter.CountPresenter;
-import com.jnj.intelence.android.mvp.view.CountView;
-import com.jnj.intelence.android.utils.BusProvider;
+import com.globant.counter.android.mvp.model.CountModel;
+import com.globant.counter.android.mvp.presenter.CountPresenter;
+import com.globant.counter.android.mvp.view.CountView;
+import com.globant.counter.android.utils.BusProvider;
 
 
 public class MainActivity extends AppCompatActivity {
