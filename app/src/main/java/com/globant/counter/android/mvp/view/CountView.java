@@ -5,7 +5,7 @@ import android.app.Activity;
 import android.widget.TextView;
 
 import com.globant.counter.android.R;
-import com.squareup.otto.Bus;
+import com.globant.counter.android.utils.RxBus;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -13,13 +13,11 @@ import butterknife.OnClick;
 
 public class CountView extends ActivityView {
 
-    private final Bus bus;
 
     @BindView(R.id.count_label) TextView countLabel;
 
-    public CountView(Activity activity, Bus bus) {
+    public CountView(Activity activity) {
         super(activity);
-        this.bus = bus;
         ButterKnife.bind(this, activity);
     }
 
@@ -29,12 +27,12 @@ public class CountView extends ActivityView {
 
     @OnClick(R.id.count_button)
     public void countButtonPressed() {
-        bus.post(new CountButtonPressedEvent());
+        RxBus.post(new CountButtonPressedEvent());
     }
 
     @OnClick(R.id.reset_button)
     public void resetButtonPressed() {
-        bus.post(new ResetButtonPressedEvent());
+        RxBus.post(new ResetButtonPressedEvent());
     }
 
     public static class CountButtonPressedEvent {
