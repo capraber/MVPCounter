@@ -28,20 +28,18 @@ public class CountModel {
         reset();
     }
     public int eval(){
-        int ret;
         switch (operator){
-            case "+": ret = secondOperator + firstOperator;
+            case "+": firstOperator = secondOperator + firstOperator;
                         break;
-            case "-": ret = secondOperator - firstOperator;
+            case "-": firstOperator = secondOperator - firstOperator;
                         break;
-            case "*": ret = secondOperator * firstOperator;
+            case "*": firstOperator = secondOperator * firstOperator;
                         break;
-            case "/": ret = secondOperator / firstOperator;
+            case "/": firstOperator = secondOperator / firstOperator;
                         break;
-            default: ret = 0;
+            default: firstOperator = 0;
         }
-        reset();
         operator = null;
-        return ret;
+        return firstOperator;
     }
 }

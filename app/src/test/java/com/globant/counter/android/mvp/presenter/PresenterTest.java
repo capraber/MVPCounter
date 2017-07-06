@@ -59,4 +59,56 @@ public class PresenterTest {
         verify(view, times(4)).setCount(anyString());
         verifyNoMoreInteractions(view);
     }
+
+    @Test
+    public void plusEvent() {
+        RxBus.post(new ActivityView.NumButtonPressedEvent("2"));
+        RxBus.post(new ActivityView.OperButtonPressedEvent("+"));
+        RxBus.post(new ActivityView.NumButtonPressedEvent("2"));
+        RxBus.post(new ActivityView.EvalButtonPressedEvent());
+        assertEquals(model.getFirstOperator(), 4);
+        RxBus.post(new ActivityView.ResetButtonPressedEvent());
+        assertEquals(model.getFirstOperator(), 0);
+        verify(view, times(5)).setCount(anyString());
+        verifyNoMoreInteractions(view);
+    }
+
+    @Test
+    public void minusEvent() {
+        RxBus.post(new ActivityView.NumButtonPressedEvent("5"));
+        RxBus.post(new ActivityView.OperButtonPressedEvent("-"));
+        RxBus.post(new ActivityView.NumButtonPressedEvent("2"));
+        RxBus.post(new ActivityView.EvalButtonPressedEvent());
+        assertEquals(model.getFirstOperator(), 3);
+        RxBus.post(new ActivityView.ResetButtonPressedEvent());
+        assertEquals(model.getFirstOperator(), 0);
+        verify(view, times(5)).setCount(anyString());
+        verifyNoMoreInteractions(view);
+    }
+
+    @Test
+    public void multiplyEvent() {
+        RxBus.post(new ActivityView.NumButtonPressedEvent("5"));
+        RxBus.post(new ActivityView.OperButtonPressedEvent("*"));
+        RxBus.post(new ActivityView.NumButtonPressedEvent("2"));
+        RxBus.post(new ActivityView.EvalButtonPressedEvent());
+        assertEquals(model.getFirstOperator(), 10);
+        RxBus.post(new ActivityView.ResetButtonPressedEvent());
+        assertEquals(model.getFirstOperator(), 0);
+        verify(view, times(5)).setCount(anyString());
+        verifyNoMoreInteractions(view);
+    }
+
+    @Test
+    public void divideEvent() {
+        RxBus.post(new ActivityView.NumButtonPressedEvent("10"));
+        RxBus.post(new ActivityView.OperButtonPressedEvent("/"));
+        RxBus.post(new ActivityView.NumButtonPressedEvent("2"));
+        RxBus.post(new ActivityView.EvalButtonPressedEvent());
+        assertEquals(model.getFirstOperator(), 5);
+        RxBus.post(new ActivityView.ResetButtonPressedEvent());
+        assertEquals(model.getFirstOperator(), 0);
+        verify(view, times(5)).setCount(anyString());
+        verifyNoMoreInteractions(view);
+    }
 }

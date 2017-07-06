@@ -45,7 +45,7 @@ public class ActivityView {
     public static class NumButtonPressedEvent {
         private Integer value;
 
-        NumButtonPressedEvent(String s) {
+        public NumButtonPressedEvent(String s) {
             this.value = Integer.parseInt(s);
         }
 
@@ -57,7 +57,7 @@ public class ActivityView {
     public static class OperButtonPressedEvent {
         private String value;
 
-        OperButtonPressedEvent(String s) {
+        public OperButtonPressedEvent(String s) {
             this.value = s;
         }
 
