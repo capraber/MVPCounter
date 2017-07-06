@@ -2,6 +2,8 @@ package com.globant.counter.android.mvp.view;
 
 
 import android.app.Activity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.globant.counter.android.R;
@@ -14,7 +16,8 @@ import butterknife.OnClick;
 public class CountView extends ActivityView {
 
 
-    @BindView(R.id.count_label) TextView countLabel;
+    @BindView(R.id.count_label)
+    TextView countLabel;
 
     public CountView(Activity activity) {
         super(activity);
@@ -23,6 +26,18 @@ public class CountView extends ActivityView {
 
     public void setCount(String count) {
         countLabel.setText(count);
+    }
+
+
+    @OnClick({R.id.button_plus, R.id.button_mutliply, R.id.button_minus, R.id.button_divide})
+    public void operButtonPressed(View view) {
+        RxBus.post(new OperButtonPressedEvent(((Button) view).getText().toString()));
+    }
+
+    @OnClick({R.id.button_0, R.id.button_1, R.id.button_2, R.id.button_3, R.id.button_4,
+            R.id.button_5, R.id.button_6, R.id.button_7, R.id.button_8, R.id.button_9})
+    public void numButtonPressed(View view) {
+        RxBus.post(new NumButtonPressedEvent(((Button) view).getText().toString()));
     }
 
     @OnClick(R.id.count_button)
@@ -35,11 +50,9 @@ public class CountView extends ActivityView {
         RxBus.post(new ResetButtonPressedEvent());
     }
 
-    public static class CountButtonPressedEvent {
-        // nothing to do.
+    @OnClick(R.id.button_equal)
+    public void evalButtonPressed() {
+        RxBus.post(new EvalButtonPressedEvent());
     }
 
-    public static class ResetButtonPressedEvent {
-        // nothing to do.
-    }
 }

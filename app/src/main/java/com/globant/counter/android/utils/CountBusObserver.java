@@ -1,15 +1,13 @@
 package com.globant.counter.android.utils;
 
-import com.globant.counter.android.mvp.view.CountView;
-
-import io.reactivex.functions.Consumer;
+import com.globant.counter.android.mvp.view.ActivityView;
 
 /**
  * Created by mauriciovignale on 04/07/17.
  */
-public abstract class CountBusObserver extends BusObserver<CountView.CountButtonPressedEvent>{
+public abstract class CountBusObserver extends BusObserver<ActivityView.CountButtonPressedEvent>{
 
     protected CountBusObserver() {
-        super(CountView.CountButtonPressedEvent.class);
+        super(ActivityView.CountButtonPressedEvent.class);
     }
 }

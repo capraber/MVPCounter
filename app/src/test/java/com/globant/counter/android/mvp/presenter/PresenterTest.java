@@ -1,7 +1,10 @@
 package com.globant.counter.android.mvp.presenter;
 
+import com.globant.counter.android.R;
 import com.globant.counter.android.mvp.model.CountModel;
+import com.globant.counter.android.mvp.view.ActivityView;
 import com.globant.counter.android.mvp.view.CountView;
+import com.globant.counter.android.utils.RxBus;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -39,20 +42,20 @@ public class PresenterTest {
     @Test
     public void isShouldIncCountByOne() {
         model.reset();
-        presenter.onCountButtonPressed(new CountView.CountButtonPressedEvent());
-        assertEquals(model.getCount(), 1);
+        RxBus.post(new ActivityView.CountButtonPressedEvent());
+        assertEquals(model.getFirstOperator(), 1);
         verify(view).setCount("1");
         verifyNoMoreInteractions(view);
     }
 
     @Test
     public void isShouldResetCount() {
-        presenter.onCountButtonPressed(new CountView.CountButtonPressedEvent());
-        presenter.onCountButtonPressed(new CountView.CountButtonPressedEvent());
-        presenter.onCountButtonPressed(new CountView.CountButtonPressedEvent());
-        assertEquals(model.getCount(), 3);
-        presenter.onResetButtonPressed(new CountView.ResetButtonPressedEvent());
-        assertEquals(model.getCount(), 0);
+        RxBus.post(new ActivityView.CountButtonPressedEvent());
+        RxBus.post(new ActivityView.CountButtonPressedEvent());
+        RxBus.post(new ActivityView.CountButtonPressedEvent());
+        assertEquals(model.getFirstOperator(), 3);
+        RxBus.post(new ActivityView.ResetButtonPressedEvent());
+        assertEquals(model.getFirstOperator(), 0);
         verify(view, times(4)).setCount(anyString());
         verifyNoMoreInteractions(view);
     }
