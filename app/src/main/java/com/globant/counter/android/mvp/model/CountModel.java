@@ -3,7 +3,7 @@ package com.globant.counter.android.mvp.model;
 public class CountModel {
 
     private int firstOperator = 0;
-    private int secondOperator = 0;
+    private int memory = 0;
     private String operator = null;
 
     public void reset() {
@@ -24,19 +24,19 @@ public class CountModel {
 
     public void setOperator(String operator) {
         this.operator = operator;
-        secondOperator = firstOperator;
+        memory = firstOperator;
         reset();
     }
     public int eval(){
         if (operator !=null){
             switch (operator){
-                case "+": firstOperator = secondOperator + firstOperator;
+                case "+": firstOperator = memory + firstOperator;
                     break;
-                case "-": firstOperator = secondOperator - firstOperator;
+                case "-": firstOperator = memory - firstOperator;
                     break;
-                case "*": firstOperator = secondOperator * firstOperator;
+                case "*": firstOperator = memory * firstOperator;
                     break;
-                case "/": firstOperator = secondOperator / firstOperator;
+                case "/": firstOperator = memory / firstOperator;
                     break;
                 default: firstOperator = 0;
             }
