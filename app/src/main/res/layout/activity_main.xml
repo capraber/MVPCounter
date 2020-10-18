@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/activity_main"
-    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
@@ -10,20 +9,20 @@
     <TextView
         android:id="@+id/count_label"
         android:layout_width="wrap_content"
-        android:textSize="40sp"
         android:layout_height="wrap_content"
-        android:text="0"/>
+        android:text="@string/zero"
+        android:textSize="@dimen/number_text_size" />
 
     <Button
         android:id="@+id/count_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="inc"/>
+        android:text="@string/inc_button" />
 
     <Button
         android:id="@+id/reset_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="reset"/>
+        android:text="@string/reset_button" />
 
 </LinearLayout>
