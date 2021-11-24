@@ -15,5 +15,7 @@ public interface CountContract {
     }
 
     interface Presenter {
+        void onCountButtonPressed();
+        void onResetButtonPressed();
     }
 }

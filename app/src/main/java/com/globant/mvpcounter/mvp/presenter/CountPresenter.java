@@ -15,11 +15,13 @@ public class CountPresenter implements CountContract.Presenter {
         this.view.onResetButtonPressed(this::onResetButtonPressed);
     }
 
+    @Override
     public void onCountButtonPressed() {
         model.inc();
         view.setCount(String.valueOf(model.getCount()));
     }
 
+    @Override
     public void onResetButtonPressed() {
         model.reset();
         view.setCount(String.valueOf(model.getCount()));
