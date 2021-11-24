@@ -1,16 +1,18 @@
 package com.globant.mvpcounter.mvp.presenter;
 
-import com.globant.mvpcounter.mvp.model.CountModel;
-import com.globant.mvpcounter.mvp.view.CountView;
+import com.globant.mvpcounter.mvp.contract.CountContract;
 
-public class CountPresenter {
+public class CountPresenter implements CountContract.Presenter {
 
-    private CountModel model;
-    private CountView view;
+    private final CountContract.Model model;
+    private final CountContract.View view;
 
-    public CountPresenter(CountModel model, CountView view) {
+    public CountPresenter(CountContract.Model model, CountContract.View view) {
         this.model = model;
         this.view = view;
+
+        this.view.onCountButtonPressed(this::onCountButtonPressed);
+        this.view.onResetButtonPressed(this::onResetButtonPressed);
     }
 
     public void onCountButtonPressed() {
